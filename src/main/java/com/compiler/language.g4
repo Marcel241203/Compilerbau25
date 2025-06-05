@@ -3,14 +3,14 @@ grammar language;
 // start symbol
 expr: 
      // unaryExpr
-
+     UNARYOP expr #exprUnary|
      // dashExpr
 
      // mulDivExpr
 
      // sumExpr
      expr SUMOP expr #exprSumOp |
-     NUMBER #exprNumber;
+     NUMBER #exprNumber
 
      // shifExpr
 
@@ -22,7 +22,7 @@ expr:
 
      // questionMarkExpr
 
-
+;
 // tokens
 NUMBER: [0-9]+;
 IDENT: [a-z]+;
@@ -32,6 +32,7 @@ LPAREN: '(';
 RPAREN: ')';
 
 // unaryExpr tokens
+UNARYOP: '-' | '!';
 
 // dashExpr tokens
 
